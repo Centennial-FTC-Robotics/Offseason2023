@@ -45,10 +45,10 @@ public class TeleOpJaden extends LinearOpMode {
             double drive = -gamepad1.left_stick_y;
             double strafe = gamepad1.left_stick_x;
             double turn = gamepad1.right_stick_x;
-            double frontLeftPower = Range.clip(drive + strafe + turn, -1.0, 1.0);
-            double frontRightPower = Range.clip(drive - strafe + turn, -1.0, 1.0);
-            double backLeftPower = Range.clip(drive - strafe - turn, -1.0, 1.0);
-            double backRightPower = Range.clip(drive + strafe - turn, -1.0, 1.0);
+            double frontLeftPower = Range.clip(drive + strafe + turn, -0.5, 0.5);
+            double frontRightPower = Range.clip(drive - strafe - turn, -0.5, 0.5);
+            double backLeftPower = Range.clip(drive - strafe + turn, -0.5, 0.5);
+            double backRightPower = Range.clip(drive + strafe - turn, -0.5, 0.5);
 
             frontLeft.setPower(frontLeftPower);
             frontRight.setPower(frontRightPower);
