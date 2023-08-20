@@ -29,13 +29,13 @@ public class MecanumTeleOp extends LinearOpMode {
         BLmotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         BRmotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        FLmotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        FRmotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        BLmotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        BRmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        FLmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        FRmotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        BLmotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        BRmotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
+        BRmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         FLmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        FRmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         BLmotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         waitForStart();
@@ -60,8 +60,8 @@ public class MecanumTeleOp extends LinearOpMode {
             BLmotor.setPower(BLPower);
             BRmotor.setPower(BRPower);
 
-            telemetry.addData("Left Encoder", FLmotor.getCurrentPosition());
-            telemetry.addData("Right Encoder", FRmotor.getCurrentPosition());
+            telemetry.addData("Left Encoder", BRmotor.getCurrentPosition());
+            telemetry.addData("Right Encoder", FLmotor.getCurrentPosition());
             telemetry.addData("Horizontal Encoder", BLmotor.getCurrentPosition());
             telemetry.update();
         }
